@@ -17,18 +17,44 @@
 </head>
 
 <body>
-        <!-- header with some flare -->
+    <!-- header with some flare -->
     <header class="jumbotron text-center text-white display-3 " style="background-color: #585858">
-        <i class="fas fa-user-astronaut"></i> 
+        <i class="fas fa-user-astronaut"></i>
         Weather Dashboard
         <i class="fas fa-user-astronaut"></i>
     </header>
+    <!-- start container for body -->
+    <div class="container">
+
+        <div class="card" style="width: 24rem;">
+            <div class="card-body">
+                <h5 class="card-title">Search For a City</h5>
+                <form>
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInput">Name</label>
+                            <input type="text" class="form-control mb-2" id="inlineFormInput"
+                                placeholder="Where you wanna check?">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-2"><i class="fas fa-search-location"></i>Search</button>
+                    </div>
+            </div>
+            </form>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+        </div>
 
 
 
 
 
-
+        <!-- end of body container -->
+    </div>
     <!-- javascript and jquery link -->
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

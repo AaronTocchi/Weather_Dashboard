@@ -20,9 +20,10 @@
     <!-- header with some flare -->
     <header class="jumbotron text-center text-white display-3 " style="background-color: #585858">
         <i class="fas fa-user-astronaut"></i>
-        Weather Dashboard
+                Weather Dashboard
         <i class="fas fa-user-astronaut"></i>
     </header>
+   
     <!-- start container for body -->
     <div class="container row">
         <!-- side search bar style="width: 20rem; -->
@@ -34,75 +35,71 @@
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Location">
                             <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2"><i
+                                <span class="input-group-text" id="search-Btn"><i
                                         class="fas fa-search-location"></i>Search</span>
                             </div>
                         </div>
                     </div>
-            </form>
-         </div>
-            
+                </form>
+            </div>
+
             <!-- flush list to push search results too #placeholders atm -->
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+            <ul class="list-group list-group-flush" id="city-list">
+               <!-- create list items of cities searched in here -->
             </ul>
         </div>
-            <!-- card with weather stats -->
-            <div class="col-9">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text"> Temperature: </p>
-                <p>Humidity: </p>
-                <p>Wind Speed:</p>
-                <p>UV Index:</p>
-            </div> 
-         </div>
-         <h4>5 Day Forcast</h4>
+        <!-- card with weather stats in large column -->
+        <div class="col-9">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" id="city-name">Card title</h5>
+                    <p class="card-text" id="temperature"> Temperature: </p>
+                    <p id="humidity">Humidity: </p>
+                    <p id="wind">Wind Speed:</p>
+                    <p id="uv-index">UV Index:</p>
+                </div>
+            </div>
+
+            <h4>5 Day Forcast</h4>
+            <!-- new row under weather stat card for 5 day forcast -->
             <div class='row'>
-            
                 <div class="col bg-primary border border-secondary">
                     <h6 id="date">date</h6>
                     <img id="weather-icon">
                     <p id="temperature">temp</p>
                     <p id="humidity">humidity</p>
-                     </div>
-                     <div class="col bg-primary border border-secondary">
-                            <h6 id="date">date</h6>
-                            <img id="weather-icon">
-                            <p id="temperature">temp</p>
-                            <p id="humidity">humidity</p>
-                             </div>
-                             <div class="col bg-primary border border-secondary">
-                                    <h6 id="date">date</h6>
-                                    <img id="weather-icon">
-                                    <p id="temperature">temp</p>
-                                    <p id="humidity">humidity</p>
-                                     </div>
-                                     <div class="col bg-primary border border-secondary">
-                                            <h6 id="date">date</h6>
-                                            <img id="weather-icon">
-                                            <p id="temperature">temp</p>
-                                            <p id="humidity">humidity</p>
-                                             </div>
-                                             <div class="col bg-primary border border-secondary">
-                                                    <h6 id="date">date</h6>
-                                                    <img id="weather-icon">
-                                                    <p id="temperature">temp</p>
-                                                    <p id="humidity">humidity</p>
-                                                     </div>
-
-            </div>
+                </div>
+                <div class="col bg-primary border border-secondary">
+                    <h6 id="date">date</h6>
+                    <img id="weather-icon">
+                    <p id="temperature">temp</p>
+                    <p id="humidity">humidity</p>
+                </div>
+                <div class="col bg-primary border border-secondary">
+                    <h6 id="date">date</h6>
+                    <img id="weather-icon">
+                    <p id="temperature">temp</p>
+                    <p id="humidity">humidity</p>
+                </div>
+                <div class="col bg-primary border border-secondary">
+                    <h6 id="date">date</h6>
+                    <img id="weather-icon">
+                    <p id="temperature">temp</p>
+                    <p id="humidity">humidity</p>
+                </div>
+                <div class="col bg-primary border border-secondary">
+                    <h6 id="date">date</h6>
+                    <img id="weather-icon">
+                    <p id="temperature">temp</p>
+                    <p id="humidity">humidity</p>
+                </div>
+             </div>
+        </div> 
       
-
-
-
-
-</div>
         <!-- end of body container -->
     </div>
+
+
     <!-- javascript and jquery link -->
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

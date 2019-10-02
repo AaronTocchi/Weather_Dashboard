@@ -97,7 +97,7 @@ function getUV() {
 
 function newcitybtn() {
     
-    newButton = $("<button>").text(city);
+    newButton = $("<button class='newCity'>").text(city);
     $("#city-list").append(newButton);
     $(".form-control").val("");
 };
@@ -176,6 +176,20 @@ $("#search-Btn").on("click", function () {
     //     //  console.log(icon);
 
     // });
+
+    
+});
+
+
+$("#city-list").on("click", '.newCity', function() {
+    event.preventDefault();
+    console.log("hello");
+    let clicked = $(this);
+    console.log(clicked);
+    city = clicked.text();
+    console.log(city)
+    getDayWeather(getUV);
+    getForcast();
 
     
 });

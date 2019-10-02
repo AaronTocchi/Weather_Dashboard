@@ -2,7 +2,7 @@
 
 
 
-let appKey = "&units=imperial&appid=0c6a6a50580bec02658ec3ed509bbbfa";
+let appKey = "0c6a6a50580bec02658ec3ed509bbbfa";
 
 
 $("#search-Btn").on("click", function () {
@@ -11,9 +11,9 @@ $("#search-Btn").on("click", function () {
     let city = $(".form-control").val();
     
 
-    let forcastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + appKey;
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + appKey;
-    // let uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + appKey + "&lat=" + "&lon=";
+    let forcastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + appKey;
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + appKey;
+    
 
     // ajax function for day of weather
     $.ajax({
@@ -25,11 +25,22 @@ $("#search-Btn").on("click", function () {
         $("#wind").text("Wind Speed: " + response.wind.speed + "MPH");
         $("#temperature").text("Temperature: " + response.main.temp + "°f");
         $("#humidity").text("Humidity: " + response.main.humidity + "%");
+        let lat = response.coord[1];
+        let lon = response.coord[0];
         // icon for weather display
         let icon = $("<img>");
         icon.attr("src", "https://openweathermap.org/img/w/${" + response.weather[0].icon + "}@2x.png");
         $("#city-name").append(icon);
         console.log(icon);
+     
+        let uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + appKey + "&lat=" + lat + "&lon=" +lon;
+        $.ajax({
+            url: uvURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+           
+        });
     });
     // ajax function for 5 day forcast
     $.ajax({

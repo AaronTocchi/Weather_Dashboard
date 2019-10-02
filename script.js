@@ -1,20 +1,62 @@
 
+
+
+
+let appKey ="&units=imperial&appid=0c6a6a50580bec02658ec3ed509bbbfa";
+
+
 $("#search-Btn").on("click", function(){
     event.preventDefault();
 
-     let city = $(".form-control").val();
-    console.log(city);
+    let city = $(".form-control").val();
     
-    let queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+ city +"&appid=0c6a6a50580bec02658ec3ed509bbbfa";
     
+    let forcastURL = "https://api.openweathermap.org/data/2.5/forecast?q="+ city + appKey;
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + appKey;
+    // ajax function for day of weather
     $.ajax({
-        url: queryURL,
+        url: weatherURL,
+        method: "GET"
+    }).then(function (response){
+        console.log (response);
+        $("#city-name").text(response.name + " ");
+        $("#wind").text("Wind Speed: " + response.wind.speed +"MPH");
+        $("#temperature").text("Temperature: " + response.main.temp + "°f");
+        $("#humidity").text("Humidity: " + response.main.humidity + "%");
+    });
+    // ajax function for 5 day forcast
+    $.ajax({
+        url: forcastURL,
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        $("#city-name").text(response.city.name + +response.list[0].dt + " " + response.list[0].weather[0].icon);
-        $("#wind").text("Wind Speed: " + response.list[0].wind.speed +"MPH");
-        $("#humidity").text("Humidity: " + response.list[0].main.humidity + "%");
+        // day 1 forcast (i know theres a cleaner way but for now this is how it is)
+        $("#date1").text(response.list[0].dt_txt);
+        $("#humidity1").text("Humidity: " + response.list[0].main.humidity + "%");
+        $("#temperature1").text("Temperature: "+ response.list[0].main.temp + "°f");
+        // day 2
+        $("#date2").text(response.list[8].dt_txt);
+        $("#humidity2").text("Humidity: " + response.list[8].main.humidity + "%");
+        $("#temperature2").text("Temperature: "+ response.list[8].main.temp + "°f");
+        // day 3
+        $("#date3").text(response.list[16].dt_txt);
+        $("#humidity3").text("Humidity: " + response.list[16].main.humidity + "%");
+        $("#temperature3").text("Temperature: "+ response.list[16].main.temp + "°f");
+        // day 4
+        $("#date4").text(response.list[24].dt_txt);
+        $("#humidity4").text("Humidity: " + response.list[24].main.humidity + "%");
+        $("#temperature4").text("Temperature: "+ response.list[24].main.temp + "°f");
+        // day 5
+        $("#date5").text(response.list[32].dt_txt);
+        $("#humidity5").text("Humidity: " + response.list[32].main.humidity + "%");
+        $("#temperature5").text("Temperature: "+ response.list[32].main.temp + "°f");
+        // icon for weather display
+        let icon =  $("<img>"); 
+        icon.attr( "src", "https://openweathermap.org/img/w/" +  response.list[0].weather[0].icon +"@2x.png");
+        $("#city-name").append(icon);
+         console.log(icon);
+        
     });
-    
+
+     
 });

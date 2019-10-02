@@ -1,7 +1,6 @@
 
 
-
-
+// id/api key for open weather map
 let appKey = "0c6a6a50580bec02658ec3ed509bbbfa";
 
 
@@ -32,7 +31,7 @@ $("#search-Btn").on("click", function () {
         icon.attr("src", "https://openweathermap.org/img/w/${" + response.weather[0].icon + "}@2x.png");
         $("#city-name").append(icon);
         console.log(icon);
-     
+    //  ajax inside of ajax. to try to maybe get UV cant stop me now....
         let uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + appKey + "&lat=" + lat + "&lon=" +lon;
         $.ajax({
             url: uvURL,
@@ -79,6 +78,8 @@ $("#search-Btn").on("click", function () {
 
 newcitybtn();
 });
+
+// my second function look how lil it is... the other one should be more like this. Also if you read this, thank you. You care and you're wearing a cute hat today
 function newcitybtn() {
     let input = $(".form-control").val();
     newButton = $("<button>").text(input);

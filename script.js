@@ -86,7 +86,7 @@ function getForcast() {
 // function to get the api for the UV index and display it
 function getUV() {
     console.log(lat, lon);
-    let uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + appKey + "&lat=" + lat + "&lon=" + lon;
+    let uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + appKey + "&lat=" + lat + "&lon=" + lon;
 
     $.ajax({
         url: uvURL,
@@ -117,6 +117,7 @@ $("#search-Btn").on("click", function () {
 
 
 // event for clicking on the new children that are creadted in city list
+// added .newCity to be delegated in to watch for
 $("#city-list").on("click", '.newCity', function () {
     event.preventDefault();
     console.log("hello");
